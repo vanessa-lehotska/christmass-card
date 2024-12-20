@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Wish</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #2c3e50;
+            color: #ecf0f1;
+            overflow: hidden;
+            transition: background 1.5s ease;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .error-message {
+            font-size: 28px;
+            color: #e74c3c;
+            margin-bottom: 20px;
+            animation: shake 0.5s;
+            animation-iteration-count: infinite;
+        }
+
+        .button {
+            background-color: #c0392b;
+            color: #fff;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #e74c3c;
+            transform: scale(1.1);
+        }
+
+        .hidden-message {
+            display: none;
+            font-size: 36px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px #000000;
+            animation: zoomIn 1.5s ease;
+        }
+
+        .christmas {
+            background: url('background.jpg') no-repeat center center;
+            background-size: cover;
+            color: #ffffff;
+        }
+
+        .christmas .hidden-message {
+            display: block;
+            font-family: 'Georgia', serif;
+            font-size: 50px;
+            color: darkslategrey;
+            text-shadow: 2px 2px 8px darkslategrey;
+            animation: fadeIn 2s ease;
+        }
+
+
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-message" id="errorMessage">Error 404: Page Not Found</div>
+        <button class="button" onclick="showMessage()">Click to Fix</button>
+        <div class="hidden-message" id="wishMessage">Šťastné a veselé v kruhu najbližších želám !</div>
+    </div>
+
+    <script>
+        function showMessage() {
+            const body = document.body;
+            const errorMessage = document.getElementById('errorMessage');
+            const button = document.querySelector('.button');
+            const wishMessage = document.getElementById('wishMessage');
+
+            errorMessage.style.display = 'none';
+            button.style.display = 'none';
+            wishMessage.style.display = 'block';
+            body.classList.add('christmas');
+        }
+    </script>
+</body>
+</html>
